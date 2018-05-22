@@ -16,6 +16,7 @@ setup(
     install_requires=[
         'django-screamshot',
         'django==1.11.11',
+        'selenium'
     ],
     packages=find_packages(),
     include_package_data=True,

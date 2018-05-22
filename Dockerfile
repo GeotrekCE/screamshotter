@@ -1,9 +1,9 @@
-FROM ubuntu:bionic
+FROM python:2.7
 MAINTAINER Makina Corpus "contact@makina-corpus.com"
 
-RUN apt-get update && apt-get upgrade -qq -y
-RUN apt-get install -y -qq libfreetype6 fontconfig wget unzip python-pip python-virtualenv
-RUN apt-get autoclean && apt-get clean all
+RUN apt-get update && apt-get install -y -qq \
+    libfreetype6 fontconfig wget curl unzip python-pip python-virtualenv chromium-browser chromium-chromedriver \
+    && apt-get purge --autoremove
 
 # PhantomJS
 RUN rm -rf /opt/*phantomjs*/ && wget --quiet https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-linux-x86_64.tar.bz2 -O /opt/phantomjs.tar.bz2 &&\
